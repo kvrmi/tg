@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        const isTikTok = /tiktok|musically/i.test(navigator.userAgent);
+        if (isTikTok) {
+            document.addEventListener('DOMContentLoaded', () => {
+                document.getElementById('tiktok-warning').style.display = 'block';
+            });
+        } else {
+            window.location.href = "tg://resolve?domain=rapidflight_bot"; // Deeplink для Telegram
+        }
+        function openLink() {
+            window.open("tg://resolve?domain=rapidflight_bot", "_system");
+        }
+    </script>
+    <style>
+        #tiktok-warning { 
+            display: none; text-align: center; padding: 20px; font-family: Arial;
+        }
+        button { 
+            background: #0088cc; color: white; border: none; padding: 15px; border-radius: 5px; cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="tiktok-warning">
+        <h3>Обнаружен браузер TikTok</h3>
+        <p>Нажмите кнопку, чтобы открыть в Telegram:</p>
+        <button onclick="openLink()">Открыть</button>
+        <p>Если не срабатывает, скопируйте ссылку: <code>tg://resolve?domain=rapidflight_bot</code></p>
+    </div>
+</body>
+</html>
